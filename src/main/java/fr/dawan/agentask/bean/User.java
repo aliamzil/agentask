@@ -12,7 +12,6 @@ public class User {
 	private Date date;
 	
 	/**
-	 * 
 	 * @param id
 	 * @param pseudo
 	 * @param email
