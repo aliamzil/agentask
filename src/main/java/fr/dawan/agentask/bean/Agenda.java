@@ -7,9 +7,10 @@ public abstract class Agenda {
 	private int id;
 	private String intitule;
 	private String description;
-	private List<Action> todolidt = new ArrayList<Action>();
+	private List<Action> todolist = new ArrayList<Action>();
+	private List<Sondage> sondagelist = new ArrayList<Sondage>();
     // --- ATRIBUTS CONFIG --- //
-	private String scc_user;
+	private String css_user;
 	private int taille_police;
 	// --- --- --- --- --- --- //
 	public Agenda(int id, String intitule, String description) {
@@ -39,35 +40,31 @@ public abstract class Agenda {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public void supprimer_tache(Action tache) {
-		
+	public List<Action> getTodolist() {
+		return todolist;
 	}
-	public void accepter_tache(Action tache,User u) {
-		
+	public void setTodolist(List<Action> todolidt) {
+		this.todolist = todolidt;
 	}
-	public void abandoner_tache(Action tache,User u) {
-		
+	public List<Sondage> getSondagelist() {
+		return sondagelist;
 	}
-	public void valider_tache(Action tache,User u) {
-		
+	public void setSondagelist(List<Sondage> sondagelist) {
+		this.sondagelist = sondagelist;
 	}
 	/**
 	 * Méthodes de configuration / personalisation
 	 */
-	public String getScc_user() {
-		return scc_user;
+	public String getCss_user() {
+		return css_user;
 	}
-	public void setScc_user(String scc_user) {
-		this.scc_user = scc_user;
+	public void setCss_user(String css_user) {
+		this.css_user = css_user;
 	}
 	public int getTaille_police() {
 		return taille_police;
 	}
 	public void setTaille_police(int taille_police) {
 		this.taille_police = taille_police;
-	}
-	public void personalisation(String scc_user,int taille_police) {
-		setScc_user(scc_user);
-		setTaille_police(taille_police);
 	}
 }

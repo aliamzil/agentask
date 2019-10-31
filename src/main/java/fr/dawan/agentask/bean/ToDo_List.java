@@ -1,6 +1,9 @@
+/**
+ *  /!\ CLASSE OBSOLETE !
+ */
 package fr.dawan.agentask.bean;
 
-import fe.dawan.agentask.enums.StatusTache;
+import fr.dawan.agentask.enums.StatusTache;
 
 public class ToDo_List {
 	private String tache;
@@ -9,7 +12,7 @@ public class ToDo_List {
 	public ToDo_List(String tache, StatusTache statustache) {
 		super();
 		this.tache = tache;
-		this.statustache = StatusTache.A_Faire;
+		this.statustache = StatusTache.ouverte;
 	}
 	public ToDo_List() {
 		super();

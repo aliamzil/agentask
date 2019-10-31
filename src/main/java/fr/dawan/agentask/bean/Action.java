@@ -5,20 +5,24 @@ import java.util.Date;
 public class Action {
 	private String titre;
 	private String description;
-	private Date date;
-	private int duree; //durée en minutes
+	private Date date_debut;
+	private Date date_fin;
 	private String lieu;
-	public Action(String titre, String description, Date date, int duree, String lieu) {
+	
+	//--------------------------------------------------------------------------------//
+
+	public Action(String titre, String description, Date date_debut, Date date_fin, String lieu) {
 		super();
 		this.titre = titre;
 		this.description = description;
-		this.date = date;
-		this.duree = duree;
+		this.date_debut = date_debut;
+		this.date_fin = date_fin;
 		this.lieu = lieu;
 	}
 	public Action() {
 		super();
 	}
+
 	public String getTitre() {
 		return titre;
 	}
@@ -31,17 +35,17 @@ public class Action {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Date getDate() {
-		return date;
+	public Date getDate_debut() {
+		return date_debut;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate_debut(Date date_debut) {
+		this.date_debut = date_debut;
 	}
-	public int getDuree() {
-		return duree;
+	public Date getDate_fin() {
+		return date_fin;
 	}
-	public void setDuree(int duree) {
-		this.duree = duree;
+	public void setDate_fin(Date date_fin) {
+		this.date_fin = date_fin;
 	}
 	public String getLieu() {
 		return lieu;
