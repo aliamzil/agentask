@@ -24,6 +24,6 @@ public class ServiceAgendaGroupe extends ServiceAgenda {
 	}
 	// Méthodes de gestion des sondages
 	public void supprimer_sondage(AgendaGroupe agGr,Sondage sondage) {
-		agGr.getSondagelist().remove(agGr.getSondagelist().indexOf(sondage));
+		agGr.getLstsnd().remove(agGr.getLstsnd().indexOf(sondage));
 	}
 }
