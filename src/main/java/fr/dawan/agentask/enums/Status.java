@@ -1,4 +1,4 @@
-package fe.dawan.agentask.enums;
+package fr.dawan.agentask.enums;
 
 public enum Status {
 	Publique, Prive, SurInvitation

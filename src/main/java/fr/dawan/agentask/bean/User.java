@@ -2,7 +2,7 @@ package fr.dawan.agentask.bean;
 
 import java.util.Date;
 
-import fe.dawan.agentask.enums.Role;
+import fr.dawan.agentask.enums.Role;
 
 public class User {
 	private int id;
