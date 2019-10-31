@@ -8,7 +8,8 @@ public abstract class Agenda {
 	private String intitule;
 	private String description;
 	private List<Action> todolist = new ArrayList<Action>();
-	private List<Sondage> sondagelist = new ArrayList<Sondage>();
+//  Dans Agenda Groupe
+//	private List<Sondage> sondagelist = new ArrayList<Sondage>();
     // --- ATRIBUTS CONFIG --- //
 	private String css_user;
 	private int taille_police;
@@ -46,12 +47,13 @@ public abstract class Agenda {
 	public void setTodolist(List<Action> todolidt) {
 		this.todolist = todolidt;
 	}
-	public List<Sondage> getSondagelist() {
-		return sondagelist;
-	}
-	public void setSondagelist(List<Sondage> sondagelist) {
-		this.sondagelist = sondagelist;
-	}
+//  Dans Agenda Groupe
+//	public List<Sondage> getSondagelist() {
+//		return sondagelist;
+//	}
+//	public void setSondagelist(List<Sondage> sondagelist) {
+//		this.sondagelist = sondagelist;
+//	}
 	/**
 	 * Méthodes de configuration / personalisation
 	 */
