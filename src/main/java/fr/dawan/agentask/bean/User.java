@@ -11,6 +11,15 @@ public class User {
 	private String pass;
 	private Date date;
 	
+	/**
+	 * 
+	 * @param id
+	 * @param pseudo
+	 * @param email
+	 * @param pass
+	 * @param date
+	 */
+	
 	public User(int id, String pseudo, String email, String pass, Date date) {
 		this.id = id;
 		this.pseudo = pseudo;
