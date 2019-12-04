@@ -1,26 +1,32 @@
 package fr.dawan.agentask.bean;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-import fr.dawan.agentask.enums.Role;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
-public class User {
-	private int id;
+@Entity
+public class User extends DbObject {
+
+	@Column(length = 50)
 	private String pseudo;
+
+	@Column(length = 50)
 	private String email;
+
+	@Column(length = 50)
 	private String pass;
-	private Date date;
+	
+	private LocalDate date;
 	
 	/**
-	 * @param id
 	 * @param pseudo
 	 * @param email
 	 * @param pass
 	 * @param date
 	 */
 	
-	public User(int id, String pseudo, String email, String pass, Date date) {
-		this.id = id;
+	public User(String pseudo, String email, String pass, LocalDate date) {
 		this.pseudo = pseudo;
 		this.email = email;
 		this.pass = pass;
@@ -29,12 +35,7 @@ public class User {
 	public User() {
 		super();
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public String getPseudo() {
 		return pseudo;
 	}
@@ -53,10 +54,10 @@ public class User {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	
