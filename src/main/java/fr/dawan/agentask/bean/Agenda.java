@@ -14,9 +14,8 @@ public abstract class Agenda {
 	private String css_user;
 	private int taille_police;
 	// --- --- --- --- --- --- //
-	public Agenda(int id, String intitule, String description) {
+	public Agenda(String intitule, String description) {
 		super();
-		this.id = id;
 		this.intitule = intitule;
 		this.description = description;
 	}

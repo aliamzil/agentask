@@ -60,10 +60,4 @@ public class Sondage {
 	public void setDate_de_fin(Date date_de_fin) {
 		this.date_de_fin = date_de_fin;
 	}
-	public void modif() {
-		
-	}
-	public void bilansondage() {
-		
-	}
 }
