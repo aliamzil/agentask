@@ -20,13 +20,17 @@ public class UserTest {
 	private final String MAIL = "toto@mail.com";
 	private final String PASS = "pass";
 	private final LocalDate DATE= LocalDate.now();
-
+	
+	User u=null,u2=null,u3=null;
+	
+			
 	@Before
 	public void setUp() throws Exception {
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		GenericDAO.delete(u, u.getId());
 	}
 
 	@Test
@@ -35,7 +39,7 @@ public class UserTest {
 		LocalDate ladate = LocalDate.now();
 		
 		GenericDAO dao = new GenericDAO();
-		User u = new User(PSEUDO,MAIL,PASS,DATE);
+		u = new User(PSEUDO,MAIL,PASS,DATE);
 		
 		dao.create(u);
 
@@ -44,8 +48,7 @@ public class UserTest {
 		assertEquals(PASS,u.getPass());
 		assertEquals(DATE,u.getDate());
 		
-		User u2 = new User();
-		User u3 = null;
+		u2 = new User();
 		
 		u2.setPseudo(PSEUDO);
 		u2.setEmail(MAIL);
