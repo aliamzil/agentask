@@ -1,6 +1,12 @@
 package fr.dawan.agentask.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
+@Entity
 public class AgendaPerso extends Agenda {
+	
+	@OneToOne
 	private User user;
 	
 	public AgendaPerso(String intitule, String description, User user) {

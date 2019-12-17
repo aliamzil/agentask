@@ -8,6 +8,7 @@ import java.util.Date;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sun.xml.bind.v2.runtime.reflect.opt.Const;
 
@@ -16,10 +17,13 @@ import fr.dawan.agentask.bean.User;
 
 public class UserTest {
 
-	private final String PSEUDO = "Toto";
-	private final String MAIL = "toto@mail.com";
-	private final String PASS = "pass";
+	private final String PSEUDO = "test";
+	private final String MAIL = "test@mail.com";
+	private final String PASS = "plop";
 	private final LocalDate DATE= LocalDate.now();
+	
+	@Autowired
+	GenericDAO dao;
 	
 	User u=null,u2=null,u3=null;
 	
@@ -30,7 +34,7 @@ public class UserTest {
 
 	@After
 	public void tearDown() throws Exception {
-		GenericDAO.delete(u, u.getId());
+		dao.delete(u.getClass(), u.getId());
 	}
 
 	@Test
@@ -38,7 +42,6 @@ public class UserTest {
 		String pseu="",mail="",pass="";
 		LocalDate ladate = LocalDate.now();
 		
-		GenericDAO dao = new GenericDAO();
 		u = new User(PSEUDO,MAIL,PASS,DATE);
 		
 		dao.create(u);
@@ -55,8 +58,8 @@ public class UserTest {
 		u2.setPass(PASS);
 		u2.setDate(DATE);
 
-		GenericDAO.create(u2);
-		GenericDAO.create(u3); 
+		dao.create(u2);
+		dao.create(u3); 
 		
 		pseu = u2.getPseudo();
 		mail = u2.getEmail();

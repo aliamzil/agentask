@@ -11,7 +11,7 @@ public class CryptitudeDao {
 		int p=7829,q=7841;
 	
 		public int pgcd(int r,int phin) {
-			// PDCD entre r et phin			
+			// PDCD entre r et phin			 
 	        while (r != phin) {
 	            if (r > phin) {r = r - phin;}
 	            else {phin = phin - r;}

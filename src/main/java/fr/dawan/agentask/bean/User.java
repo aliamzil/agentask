@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+ 
 @Entity
 public class User extends DbObject {
 
@@ -24,6 +24,7 @@ public class User extends DbObject {
 	 * @param email
 	 * @param pass
 	 * @param date
+	 * 
 	 */
 	
 	public User(String pseudo, String email, String pass, LocalDate date) {

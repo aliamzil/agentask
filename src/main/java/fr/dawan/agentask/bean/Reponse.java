@@ -1,18 +1,23 @@
 package fr.dawan.agentask.bean;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
-public class Reponse {
-	private int idReponse;
+@Entity
+public class Reponse extends DbObject {
+	
+	@ManyToOne
 	private Sondage sondage;
-	private List<Integer> listrep=new ArrayList<Integer>();
-	public Reponse(int idReponse, Sondage sondage, List<Integer> listrep) {
+	
+
+	//private List<Integer> listrep=new ArrayList<Integer>();
+	private int rep = 0;
+	
+	
+	public Reponse(Sondage sondage, int rep) {
 		super();
-		this.idReponse = idReponse;
 		this.sondage = sondage;
-		this.listrep = listrep;
+		this.rep = rep;
 	}
 	public Reponse() {
 		super();

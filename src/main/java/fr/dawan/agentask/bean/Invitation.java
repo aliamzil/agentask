@@ -2,20 +2,32 @@ package fr.dawan.agentask.bean;
 
 import java.util.Date;
 
-public class Invitation {
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Invitation extends DbObject {
 	/**
 	 * invitation event ou agGroupe toujours l'un des deux à 'null'
 	 */
+	
+	@ManyToOne
 	public Evenement event;
+	
+	@ManyToOne
 	public AgendaGroupe agGroupe;
-
+	
+	@ManyToOne
 	public User expediteur;
 
 	/**
 	 * Utilisateur de l'app => User
 	 * Exterieur a l'app => Email
 	 */
+	
+	@ManyToOne
 	public User destinataire;
+	
 	public String mail_destinataire;
 
 	public String libelle;

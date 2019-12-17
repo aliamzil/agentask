@@ -13,7 +13,7 @@ public class Action extends DbObject {
 	private String lieu;
 	
 	//--------------------------------------------------------------------------------//
-
+ 
 	public Action(String titre, String description, Date date_debut, Date date_fin, String lieu) {
 		super();
 		this.titre = titre;

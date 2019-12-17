@@ -4,10 +4,13 @@ package fr.dawan.agentask.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+
 import fr.dawan.agentask.enums.Status;
 import fr.dawan.agentask.enums.TypeGroupe;
 
-public class Groupe {
+//@Entity
+public class Groupe extends DbObject {
 	private String name;
 	private Status status;
 	private TypeGroupe type;
