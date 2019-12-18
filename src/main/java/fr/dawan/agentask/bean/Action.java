@@ -13,7 +13,11 @@ public class Action extends DbObject {
 	private String lieu;
 	
 	//--------------------------------------------------------------------------------//
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 	public Action(String titre, String description, Date date_debut, Date date_fin, String lieu) {
 		super();
 		this.titre = titre;

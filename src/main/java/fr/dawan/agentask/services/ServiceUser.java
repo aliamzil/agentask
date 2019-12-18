@@ -1,5 +1,6 @@
 package fr.dawan.agentask.services;
 
+<<<<<<< HEAD
 import java.time.LocalDate;
 
 import javax.mail.Message;
@@ -117,4 +118,14 @@ public class ServiceUser {
 	public void passperdu(User u) {
 		this.envoimail(u.getEmail(), "pasrecover@agentask.app", "mot de passe perdu","Blablabla, [a href=lien vers la page de création de nouveau mot de passe]lien[/a], clickez, la la la");
 	}
+=======
+import fr.dawan.agentask.bean.User;
+
+public class ServiceUser extends User{
+	
+	public void seconnecter(String pseudo, String pass) {
+		
+	}
+
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 }

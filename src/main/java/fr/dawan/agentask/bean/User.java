@@ -4,7 +4,11 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 @Entity
 public class User extends DbObject {
 
@@ -24,7 +28,10 @@ public class User extends DbObject {
 	 * @param email
 	 * @param pass
 	 * @param date
+<<<<<<< HEAD
 	 * 
+=======
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 	 */
 	
 	public User(String pseudo, String email, String pass, LocalDate date) {

@@ -1,9 +1,13 @@
 package fr.dawan.agentask.bean;
 
+<<<<<<< HEAD
 import javax.persistence.Entity;
 
 @Entity
 public class Carnet_Contact extends DbObject {
+=======
+public class Carnet_Contact {
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 	private String nom;
 	private String prenom;
 	private String adressemail;

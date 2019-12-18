@@ -126,6 +126,7 @@
 			<version>5.4.7.Final</version>
 		</dependency>
 
+<<<<<<< HEAD
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -147,6 +148,8 @@
 			<version>1.6.2</version>
 		</dependency>
 
+=======
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -160,8 +163,12 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+<<<<<<< HEAD
 
 
+=======
+		
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 	</dependencies>
 	<build>
 		<plugins>

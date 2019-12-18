@@ -4,23 +4,31 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Evenement extends DbObject {
+=======
+public class Evenement {
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 	private int idevent;
 	private String titre;
 	private String description;
 	private Date date_debut;
 	private Date date_fin;
 	private String lieu;
+<<<<<<< HEAD
 	
 	@ManyToOne
 	private AgendaPerso agp;
 	
 	@OneToMany
+=======
+	private AgendaPerso agp;
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 	private List<User> liste_participants=new ArrayList<User>();
 
 	public Evenement(String titre, String description, Date date_debut, Date date_fin, String lieu, AgendaPerso agp,

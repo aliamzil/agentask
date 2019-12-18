@@ -1,5 +1,16 @@
 package fr.dawan.agentask;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+
+import fr.dawan.agentask.bean.Groupe;
+import fr.dawan.agentask.bean.User;
+import fr.dawan.agentask.enums.Status;
+import fr.dawan.agentask.enums.TypeGroupe;
+
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 public class Main {
 
 	public static void main(String[] args) {

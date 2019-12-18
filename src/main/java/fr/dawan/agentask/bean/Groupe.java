@@ -4,6 +4,7 @@ package fr.dawan.agentask.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.persistence.Entity;
 
 import fr.dawan.agentask.enums.Status;
@@ -11,6 +12,12 @@ import fr.dawan.agentask.enums.TypeGroupe;
 
 //@Entity
 public class Groupe extends DbObject {
+=======
+import fr.dawan.agentask.enums.Status;
+import fr.dawan.agentask.enums.TypeGroupe;
+
+public class Groupe {
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 	private String name;
 	private Status status;
 	private TypeGroupe type;

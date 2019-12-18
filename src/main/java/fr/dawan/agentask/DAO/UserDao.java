@@ -1,5 +1,6 @@
 package fr.dawan.agentask.DAO;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -40,5 +41,9 @@ public class UserDao extends GenericDAO{
 		if(result.isEmpty()) {return null;}
 		else {return result.get(0);}
 	}
+=======
+public class UserDao extends GenericDAO{
+	
+>>>>>>> d4bb4659f96d3a5ca14c07d0405d4b4cbb337544
 
 }
