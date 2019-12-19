@@ -3,11 +3,17 @@
  */
 package fr.dawan.agentask.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import fr.dawan.agentask.enums.StatusTache;
 
-public class ToDo_List {
+@Entity
+public class ToDo_List extends DbObject {
 	private String tache;
 	private StatusTache statustache;
+	
+	@ManyToOne
 	private User user;
 	public ToDo_List(String tache, StatusTache statustache) {
 		super();

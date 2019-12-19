@@ -3,8 +3,7 @@ package fr.dawan.agentask.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Agenda {
-	private int id;
+public abstract class Agenda extends DbObject {
 	private String intitule;
 	private String description;
 	private List<Action> todolist = new ArrayList<Action>();
@@ -14,20 +13,13 @@ public abstract class Agenda {
 	private String css_user;
 	private int taille_police;
 	// --- --- --- --- --- --- //
-	public Agenda(int id, String intitule, String description) {
+	public Agenda(String intitule, String description) {
 		super();
-		this.id = id;
 		this.intitule = intitule;
 		this.description = description;
 	}
 	public Agenda() {
 		super();
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public String getIntitule() {
 		return intitule;

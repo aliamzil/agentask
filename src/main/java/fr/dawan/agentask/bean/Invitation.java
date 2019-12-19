@@ -2,20 +2,32 @@ package fr.dawan.agentask.bean;
 
 import java.util.Date;
 
-public class Invitation {
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Invitation extends DbObject {
 	/**
 	 * invitation event ou agGroupe toujours l'un des deux à 'null'
 	 */
+	
+	@ManyToOne
 	public Evenement event;
+	
+	@ManyToOne
 	public AgendaGroupe agGroupe;
-
+	
+	@ManyToOne
 	public User expediteur;
 
 	/**
 	 * Utilisateur de l'app => User
 	 * Exterieur a l'app => Email
 	 */
+	
+	@ManyToOne
 	public User destinataire;
+	
 	public String mail_destinataire;
 
 	public String libelle;
@@ -23,6 +35,7 @@ public class Invitation {
 	public Date date_invit;
 	public int duree_avant_expiration;// en heures (ou jours)
 
+	// Inviter un autre utilisateur de l'application à un évènement
 	public Invitation(Evenement event, User expediteur, User destinataire, String libelle, String description,
 			Date date_invit, int duree_avant_expiration) {
 		super();
@@ -35,6 +48,7 @@ public class Invitation {
 		this.duree_avant_expiration = duree_avant_expiration;
 	}
 
+	// Inviter une personne n'utilisant pas l'application à un évènement
 	public Invitation(Evenement event, User expediteur, String mail_destinataire, String libelle, String description,
 			Date date_invit, int duree_avant_expiration) {
 		super();
@@ -47,6 +61,7 @@ public class Invitation {
 		this.duree_avant_expiration = duree_avant_expiration;
 	}
 
+	// Inviter un autre utilisateur de l'application dans un groupe
 	public Invitation(AgendaGroupe agGroupe, User expediteur, User destinataire, String libelle, String description,
 			Date date_invit, int duree_avant_expiration) {
 		super();
@@ -59,6 +74,7 @@ public class Invitation {
 		this.duree_avant_expiration = duree_avant_expiration;
 	}
 
+	// Inviter une personne n'utilisant pas l'application dans un groupe
 	public Invitation(AgendaGroupe agGroupe, User expediteur, String mail_destinataire, String libelle,
 			String description, Date date_invit, int duree_avant_expiration) {
 		super();
@@ -104,7 +120,7 @@ public class Invitation {
 	}
 
 	public void setDestinataire(User destinataire) {
-		this.destinataire = destinataire;
+		this.destinataire = destinataire; 
 	}
 
 	public String getMail_destinataire() {

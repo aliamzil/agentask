@@ -1,34 +1,35 @@
 package fr.dawan.agentask.bean;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
-public class Sondage {
-	private int idSondage;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Sondage extends DbObject {
 	private String Libelle;
 	private HashMap<Integer , String> lstq = new HashMap<Integer , String>();
-	private String description;
+	private String description1;
 	private Date date_de_debut;
-	private Date date_de_fin;
+	private Date date_de_fin1;
 	
-	public Sondage(int idSondage, String libelle, HashMap<Integer, String> lstq, String description, Date date_de_debut,
+	@OneToMany(mappedBy = "sondage")
+	private List<Reponse> listrep = new ArrayList<Reponse>();
+	
+	public Sondage(String libelle, HashMap<Integer, String> lstq, String description, Date date_de_debut,
 			Date date_de_fin) {
 		super();
-		this.idSondage = idSondage;
 		Libelle = libelle;
 		this.lstq = lstq;
-		this.description = description;
+		this.description1 = description1;
 		this.date_de_debut = date_de_debut;
-		this.date_de_fin = date_de_fin;
+		this.date_de_fin1 = date_de_fin1;
 	}
 	public Sondage() {
 		super();
-	}
-	public int getIdSondage() {
-		return idSondage;
-	}
-	public void setIdSondage(int idSondage) {
-		this.idSondage = idSondage;
 	}
 	public String getLibelle() {
 		return Libelle;
@@ -43,10 +44,10 @@ public class Sondage {
 		this.lstq = lstq;
 	}
 	public String getDescription() {
-		return description;
+		return description1;
 	}
 	public void setDescription(String description) {
-		this.description = description;
+		this.description1 = description;
 	}
 	public Date getDate_de_debut() {
 		return date_de_debut;
@@ -55,15 +56,9 @@ public class Sondage {
 		this.date_de_debut = date_de_debut;
 	}
 	public Date getDate_de_fin() {
-		return date_de_fin;
+		return date_de_fin1;
 	}
 	public void setDate_de_fin(Date date_de_fin) {
-		this.date_de_fin = date_de_fin;
-	}
-	public void modif() {
-		
-	}
-	public void bilansondage() {
-		
+		this.date_de_fin1 = date_de_fin;
 	}
 }

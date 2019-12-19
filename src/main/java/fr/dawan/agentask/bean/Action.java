@@ -2,7 +2,10 @@ package fr.dawan.agentask.bean;
 
 import java.util.Date;
 
-public class Action {
+import javax.persistence.Entity;
+
+@Entity
+public class Action extends DbObject {
 	private String titre;
 	private String description;
 	private Date date_debut;
@@ -10,7 +13,7 @@ public class Action {
 	private String lieu;
 	
 	//--------------------------------------------------------------------------------//
-
+ 
 	public Action(String titre, String description, Date date_debut, Date date_fin, String lieu) {
 		super();
 		this.titre = titre;

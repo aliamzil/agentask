@@ -1,9 +1,17 @@
 package fr.dawan.agentask.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import fr.dawan.agentask.enums.Role;
 
-public class GroupUserRole {
+@Entity
+public class GroupUserRole extends DbObject{
+	
+	@ManyToOne
 	private AgendaGroupe aggr;
+	
+	@ManyToOne
 	private User user;
 	private Role role;
 	public GroupUserRole(AgendaGroupe aggr, User user, Role role) {

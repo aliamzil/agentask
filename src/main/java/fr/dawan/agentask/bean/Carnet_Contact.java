@@ -1,6 +1,9 @@
 package fr.dawan.agentask.bean;
 
-public class Carnet_Contact {
+import javax.persistence.Entity;
+
+@Entity
+public class Carnet_Contact extends DbObject {
 	private String nom;
 	private String prenom;
 	private String adressemail;
