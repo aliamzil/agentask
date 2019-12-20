@@ -2,26 +2,15 @@ package fr.dawan.agentask.controllers;
 
 import java.time.LocalDate;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import fr.dawan.agentask.DAO.CryptitudeDao;
 import fr.dawan.agentask.DAO.UserDao;
-import fr.dawan.agentask.bean.Invitation;
 import fr.dawan.agentask.bean.User;
-import fr.dawan.agentask.form.LoginForm;
 import fr.dawan.agentask.services.ServiceUser;
 
 @RestController
@@ -41,8 +30,9 @@ public class testcontrol {
     public User users() {
 		User u = new User("toto","toto@toto.fr","123",LocalDate.now());
 		return u;
-	} 
+	}
     
+    /*
 	@GetMapping(path="/home")
 	public String home(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -126,6 +116,6 @@ public class testcontrol {
 			mav.setViewName("redirect:/home");
 		}
 		return mav;
-	}
+	}*/
 
 }
