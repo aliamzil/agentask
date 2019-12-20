@@ -2,24 +2,30 @@ package fr.dawan.agentask.controllers;
 
 import java.time.LocalDate;
 
-import javax.mail.Message;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import fr.dawan.agentask.DAO.CryptitudeDao;
 import fr.dawan.agentask.DAO.UserDao;
+import fr.dawan.agentask.bean.Invitation;
 import fr.dawan.agentask.bean.User;
+import fr.dawan.agentask.form.LoginForm;
 import fr.dawan.agentask.services.ServiceUser;
 
-@Controller
+@RestController
+@CrossOrigin(origins="http://localhost:4200", allowCredentials = "true")                           // @CrossOrigin is used to handle the request from a difference origin.
 public class testcontrol {
 	
 	@Autowired
@@ -30,6 +36,28 @@ public class testcontrol {
     private JavaMailSender emailSender;
     @Autowired
     CryptitudeDao cd;
+    
+    @GetMapping(path="/user", produces = "application/json")
+    public User users() {
+		User u = new User("toto","toto@toto.fr","123",LocalDate.now());
+		return u;
+	} 
+    
+	@GetMapping(path="/home")
+	public String home(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User u1 = null;
+		
+		if(session.getAttribute("user")==null) {
+			return "testlog";
+		}else {
+			LocalDate serverTime = LocalDate.now();
+			u1 = (User) session.getAttribute("user");
+			request.setAttribute("serverTime", serverTime);
+			request.setAttribute("u1", u1);
+			return "home";
+		}
+	}
 	
 	@GetMapping("/testuser404")
 	public String testuser(HttpServletRequest request) {
@@ -60,6 +88,44 @@ public class testcontrol {
 	public String crypter() {
 		System.out.println(cd.cryptage("rogerpass"));
 		return "home";
+	}
+
+	@GetMapping("/deco")
+	public String deco(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		su.deconnect(session);
+		return "home";
+	}
+	
+	@GetMapping("/testgetclass")
+	public String tgc() {
+		Invitation i = new Invitation();
+		System.out.println(i.getClass());
+		return "home";
+	}
+	
+	@GetMapping("/login")
+	public String userGetLogin() {
+		return "testlog";
+	}
+	
+	@PostMapping("/login")
+	public ModelAndView userLogin(@Valid @ModelAttribute("loginform") LoginForm logform, BindingResult result, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		User u1=null;
+		
+		if(result.hasErrors()) {
+			mav.addObject("error", result);
+			mav.addObject("loginform", logform);
+			mav.setViewName("testlog");
+		} else {
+			String pseudo = logform.getPseudo();
+			String pass = logform.getPass();
+			su.connect(u1, pseudo, pass, session);
+			mav.setViewName("redirect:/home");
+		}
+		return mav;
 	}
 
 }

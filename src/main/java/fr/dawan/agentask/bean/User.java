@@ -4,8 +4,11 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
+import org.springframework.stereotype.Component;
  
 @Entity
+@Component
 public class User extends DbObject {
 
 	@Column(length = 50)

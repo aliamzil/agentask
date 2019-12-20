@@ -8,12 +8,9 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import fr.dawan.agentask.DAO.CryptitudeDao;
 import fr.dawan.agentask.DAO.UserDao;
@@ -24,8 +21,10 @@ public class ServiceUser {
 
 	@Autowired
 	UserDao udao;
+	
 	@Autowired
 	CryptitudeDao crpdao;
+	
     @Autowired
     private JavaMailSender emailSender;
 

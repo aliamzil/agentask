@@ -1,9 +1,12 @@
 package fr.dawan.agentask.services;
 
+import org.springframework.stereotype.Service;
+
 import fr.dawan.agentask.bean.Action;
 import fr.dawan.agentask.bean.Agenda;
 import fr.dawan.agentask.bean.User;
 
+@Service
 public class ServiceAgenda {
 	public void supprimer_tache(Action tache) {
 		

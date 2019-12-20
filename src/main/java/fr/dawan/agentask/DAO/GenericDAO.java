@@ -3,9 +3,6 @@ package fr.dawan.agentask.DAO;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -19,119 +16,29 @@ public class GenericDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-//	private EntityManagerFactory  emf = Persistence.createEntityManagerFactory("agentask"); 
-//	private EntityManager em = emf.createEntityManager();
-	
 	public <T extends DbObject> void create(T entity) {
-
 		em.persist(entity);
-		
-//		if (entity != null && entity.getId() == 0) {
-//			EntityManager entityManager = createEntityManager();
-//			EntityTransaction transaction = entityManager.getTransaction();
-//
-//			try {
-//				// début de la transaction
-//				transaction.begin();
-//
-//				// On insère la formation dans la BDD
-//				entityManager.persist(entity);
-//
-//				// on commit tout ce qui s'est fait dans la transaction
-//				transaction.commit();
-//			} catch (Exception ex) {
-//				// en cas d'erreur, on effectue un rollback
-//				transaction.rollback();
-//				ex.printStackTrace();
-//			} finally {
-//				entityManager.close();
-//			}
-//		}
 	}
 
 	public <T extends DbObject> T findById(Class<T> clazz, long id) {
-		
 		return em.find(clazz, id);
-
-//		EntityManager entityManager = createEntityManager();
-//		T entity = null;
-//
-//		try {
-//			// On charge la formation depuis la BDD, selon son ID
-//			entity = entityManager.find(clazz, id);
-//		} catch (Exception ex) {
-//			ex.printStackTrace();
-//		} finally {
-//			entityManager.close();
-//		}
-//
-//		return entity;
 	}
 
 	public <T extends DbObject> void update(T entity) {
 		if (entity.getId() > 0) {
 			em.merge(entity);
 		}
-//			EntityManager entityManager = createEntityManager();
-//			EntityTransaction transaction = entityManager.getTransaction();
-//
-//			try {
-//				// début de la transaction
-//				transaction.begin();
-//
-//				// On met à jour la formation
-//				entityManager.merge(entity);
-//
-//				// on commit tout ce qui s'est fait dans la transaction
-//				transaction.commit();
-//			} catch (Exception ex) {
-//				// en cas d'erreur, on effectue un rollback
-//				transaction.rollback();
-//				ex.printStackTrace();
-//			} finally {
-//				entityManager.close();
-//			}
-//		}
 	}
 
 	public <T extends DbObject> void delete(Class<T> clazz, long id) {
 		T entity = em.find(clazz, id);
 		em.remove(entity);
-		
-//		EntityManager entityManager = createEntityManager();
-//		EntityTransaction transaction = entityManager.getTransaction();
-//
-//		try {
-//			// début de la transaction
-//			transaction.begin();
-//
-//			T entity = entityManager.find(clazz, id);
-//			entityManager.remove(entity);
-//
-//			// on commit tout ce qui s'est fait dans la transaction
-//			transaction.commit();
-//		} catch (Exception ex) {
-//			// en cas d'erreur, on effectue un rollback
-//			transaction.rollback();
-//			ex.printStackTrace();
-//		} finally {
-//			entityManager.close();
-//		}
 	}
 
 	public <T extends DbObject> List<T> findAll(Class<T> clazz) {
 		List<T> resultat = null;
-
-//		EntityManager em = createEntityManager();
-
-		// on crée la requête
 		TypedQuery<T> query = em.createQuery("SELECT entity FROM " + clazz.getName() + " entity", clazz);
-
-		// on exécute la requête et on récupère le résultat
 		resultat = query.getResultList();
-
-//		em.close();
-
 		return resultat;
 	}
 
@@ -147,8 +54,6 @@ public class GenericDAO {
 	public <T extends DbObject> List<T> findAll(Class<T> clazz, int begin, int nbResult) {
 		List<T> resultat = null;
 
-//		EntityManager em = createEntityManager();
-
 		// on crée la requête
 		TypedQuery<T> query = em.createQuery("SELECT entity FROM " + clazz.getName() + " entity", clazz);
 
@@ -157,27 +62,18 @@ public class GenericDAO {
 				.setMaxResults(nbResult) // on charge nbResult résultats
 				.getResultList();
 
-//		em.close();
-
 		return resultat;
 	}
 
 	public <T extends DbObject> void deleteAll(Class<T> clazz) {
-
-//		EntityManager em = createEntityManager();
-//		EntityTransaction transaction = em.getTransaction();
-//		transaction.begin();
-		
 		Query query = em.createQuery("Delete FROM " + clazz.getName());
 		query.executeUpdate();
-		
-//		transaction.commit();
-//		em.close();
 	}
-
-//	public static EntityManager createEntityManager() {
-//		EntityManagerFactory factory = Persistence.createEntityManagerFactory("agentask");
-//		EntityManager entityManager = factory.createEntityManager();
-//		return entityManager;
-//	}
+	
+	public <T extends DbObject> long countElementby(Class<T> clazz,String att,String vallatt) throws Exception {
+		TypedQuery<Long> query=em.createQuery("SELECT COUNT(entity) FROM "+clazz.getName()+" entity WHERE entity."+att+"='"+vallatt+"'", Long.class);
+		long result=query.getSingleResult();
+		return result;
+	}
+	
 }

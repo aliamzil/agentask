@@ -1,97 +1,46 @@
 package fr.dawan.agentask.bean;
 
 import java.util.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Evenement extends DbObject {
-	private int idevent;
-	private String titre;
-	private String description;
-	private Date date_debut;
-	private Date date_fin;
-	private String lieu;
+@DiscriminatorValue("evenement")
+public class Evenement extends elementagenda {
 	
 	@ManyToOne
-	private AgendaPerso agp;
+	private AgendaPerso ap;
 	
 	@OneToMany
 	private List<User> liste_participants=new ArrayList<User>();
 
-	public Evenement(String titre, String description, Date date_debut, Date date_fin, String lieu, AgendaPerso agp,
-			List<User> liste_participants) {
-		this.titre = titre;
-		this.description = description;
-		this.date_debut = date_debut;
-		this.date_fin = date_fin;
-		this.lieu = lieu;
-		this.agp = agp;
-		this.liste_participants = liste_participants;
-	}
-	
 	public Evenement() {
 		super();
 	}
-	
-	public int getIdevent() {
-		return idevent;
+
+	public Evenement(String titre, String description, LocalDate date_debut, LocalDate date_fin, String lieu, AgendaPerso ap) {
+		super(titre, description, date_debut, date_fin, lieu);
+		this.ap = ap;
 	}
 
-	public void setIdevent(int idevent) {
-		this.idevent = idevent;
+	public Evenement(AgendaPerso ap, List<User> liste_participants) {
+		super();
+		this.ap = ap;
+		this.liste_participants = liste_participants;
 	}
 
-	public String getTitre() {
-		return titre;
+	public AgendaPerso getAp() {
+		return ap;
 	}
 
-	public void setTitre(String titre) {
-		this.titre = titre;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Date getDate_debut() {
-		return date_debut;
-	}
-
-	public void setDate_debut(Date date_debut) {
-		this.date_debut = date_debut;
-	}
-
-	public Date getDate_fin() {
-		return date_fin;
-	}
-
-	public void setDate_fin(Date date_fin) {
-		this.date_fin = date_fin;
-	}
-
-	public String getLieu() {
-		return lieu;
-	}
-
-	public void setLieu(String lieu) {
-		this.lieu = lieu;
-	}
-
-	public AgendaPerso getAgp() {
-		return agp;
-	}
-
-	public void setAgp(AgendaPerso agp) {
-		this.agp = agp;
+	public void setAp(AgendaPerso ap) {
+		this.ap = ap;
 	}
 
 	public List<User> getListe_participants() {
@@ -102,4 +51,5 @@ public class Evenement extends DbObject {
 		this.liste_participants = liste_participants;
 	}
 
+	
 }

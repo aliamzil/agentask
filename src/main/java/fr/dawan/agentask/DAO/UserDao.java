@@ -3,16 +3,13 @@ package fr.dawan.agentask.DAO;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.transaction.Transactional;
 
 import fr.dawan.agentask.bean.User;
 
-
+@Transactional
 public class UserDao extends GenericDAO{
 
 	@PersistenceContext
